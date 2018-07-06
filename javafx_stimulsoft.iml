@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Reports" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/Localization" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-libs:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-webdesigner:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-report:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-web:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-demo:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-base:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-lib:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.kitfox.svg:svg-salamander:1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-viewer:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-samples:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-swt:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-flex:2018.2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.stimulsoft:stimulsoft-reports-webviewer:2018.2.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.46" level="project" />
+  </component>
+</module>
