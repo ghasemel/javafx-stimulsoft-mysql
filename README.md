@@ -3,7 +3,7 @@
 This program shows how to integrate Stimulsoft Reporting tools with Java.
 It includes following tools/technologies:
 
-Stimulsoft Reporting
+Stimulsoft Reporting<br />
 JavaFx
 Swing
 MySQL
