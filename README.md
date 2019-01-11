@@ -3,6 +3,7 @@
 This program shows how to integrate Stimulsoft Reporting tools with Java.
 It includes following tools/technologies:
 
+Java 8<br />
 Stimulsoft Reporting<br />
 JavaFx<br />
 Swing<br />
