@@ -4,10 +4,10 @@ This program shows how to integrate Stimulsoft Reporting tools with Java.
 It includes following tools/technologies:
 
 Stimulsoft Reporting<br />
-JavaFx
-Swing
-MySQL
-Maven
+JavaFx<br />
+Swing<br />
+MySQL<br />
+Maven<br />
 Localization
 
 It also contains a Customized Report Viewer (ReportViewer class) with more controls on stimulsoft report viewer UI (StiViewerFx class).
