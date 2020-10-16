@@ -1,4 +1,4 @@
-# java-javafx-stimulsoft-mysql
+# java-javafx-stimulsoft-mysql. 
 
 This code shows how to integrate Stimulsoft Reporting tools with Java.
 It includes following tools/technologies:
