@@ -14,3 +14,8 @@ Localization
 It also contains a Customized Report Viewer (ReportViewer class) with more controls on stimulsoft report viewer UI (StiViewerFx class).
 With localization simplified feature, you can easily localize your report viewer. Two locale files are placed in Localization directory.
 For supporting more languages just put your specific language file in this directory and send the name of it to ReportViewer class.
+
+
+
+# License
+The contents of this repository are covered under the [MIT License](https://github.com/ghasemel/java-javafx-stimulsoft-mysql/blob/master/LICENSE).
