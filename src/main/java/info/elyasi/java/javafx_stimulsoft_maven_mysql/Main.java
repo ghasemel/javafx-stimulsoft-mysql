@@ -12,14 +12,14 @@ import java.awt.*;
 
 /**
  * This program shows how to integrate Stimulsoft Reporting tools with Java.<p>
- * It includes following tools/technologies:
+ * Tools/Framewroks:
  *      <ul>
  *          <li>Stimulsoft Reporting</li>
  *          <li>JavaFx</li>
  *          <li>Swing</li>
  *          <li>MySQL</li>
  *          <li>Maven</li>
- *          <li>Localization</li>
+ *          <li>Localization</li>**
  *      </ul><br>
  * It also contains a <b>Customized Report Viewer</b> ({@link ReportViewer} class) with more controls on stimulsoft report viewer UI ({@link com.stimulsoft.viewer.StiViewerFx} class).<p>
  * With <b>localization</b> simplified feature, you can easily localize your report viewer. Two locale files are placed in Localization directory.<br>
@@ -35,10 +35,11 @@ import java.awt.*;
 public class Main extends Application {
 
     private static final String MYSQL_IP = "localhost";
-    private static final int MYSQL_PORT = 4405;
-    private static final String DB_NAME = "mysql";
+    private static final int MYSQL_PORT = 3306;
     private static final String MYSQL_USER = "root";
     private static final String MYSQL_PASS = "951963";
+
+    private static final String DB_NAME = "mysql";
 
     /**
      * start method of JavaFx application that is overridden
@@ -56,8 +57,6 @@ public class Main extends Application {
             Platform.exit();
         });
         primaryStage.show();
-
-
     }
 
 
@@ -69,8 +68,19 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         super.init();
+
+        String localization = "en";
+        boolean rightToLeft = false;
+
+        // read localization arg
+        if (getParameters() != null && getParameters().getRaw() != null && getParameters().getRaw().size() > 0)
+            localization = getParameters().getRaw().get(0);
+
+        if (localization.equals("fa"))
+            rightToLeft = true;
+
         ReportViewer.UIFontConfiguration(new javax.swing.plaf.FontUIResource("Tahoma",Font.PLAIN,12));
-        ReportViewer.localizationConfiguration("fa", true);
+        ReportViewer.localizationConfiguration(localization, rightToLeft);
         ReportViewer.setNavigationToolbarToTopConfiguration(true);
         ReportViewer.setDisableToolTipsConfiguration(true);
         ReportViewer.initial(MYSQL_IP, MYSQL_PORT, MYSQL_USER, MYSQL_PASS, DB_NAME);

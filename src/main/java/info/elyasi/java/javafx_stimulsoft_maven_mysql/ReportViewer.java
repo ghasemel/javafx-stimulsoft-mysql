@@ -36,11 +36,10 @@ import java.util.Locale;
  * Custom report viewer for stimulsoft with focus to provide more controls on UI. Makes the localization simple and fix right_to_left issues of {@link StiViewerFx}.<br>
  * To localize a language, just put the corresponding file in the Localization directory and call localizationConfiguration method with file name and right to left value for specified language.
  *
- * @see <a href="https://www.stimulsoft.com" target="_blank">Stimulsoft</a>
- * @see <a href="https://elyasi.info" target="_blank">Author's website</a>
- *
  * @author Ghasem Elyasi (ghasem.elyasi@gmail.com)
  * @version 1.0
+ * @see <a href="https://www.stimulsoft.com" target="_blank">Stimulsoft</a>
+ * @see <a href="https://elyasi.info" target="_blank">Author's website</a>
  * @since 2018-07-06
  */
 public class ReportViewer extends StiViewerFx {
@@ -55,11 +54,12 @@ public class ReportViewer extends StiViewerFx {
      * This method must be call before using {@link ReportViewer} to initialize it. it also must be called
      * after any configuration methods of this class.
      * Data Source name in the reports files must be "DataSet1"
-     * @param _server MySQL server ip or address
-     * @param _port MySQL server port
+     *
+     * @param _server   MySQL server ip or address
+     * @param _port     MySQL server port
      * @param _username MySQL username
      * @param _password MySql password
-     * @param _dbName database name of related database in MySQL server.
+     * @param _dbName   database name of related database in MySQL server.
      */
     public static void initial(String _server, int _port, String _username, String _password, String _dbName) {
         frame = new JFrame();
@@ -70,14 +70,13 @@ public class ReportViewer extends StiViewerFx {
 
         tabbedPane = new JTabbedPane();
         tabbedPane.addChangeListener(e -> {
-            ReportViewer viewer = ((ReportViewer)tabbedPane.getSelectedComponent());
-            frame.setTitle(viewer.getTitle() + " - " +  viewer.getReportPath());
+            ReportViewer viewer = ((ReportViewer) tabbedPane.getSelectedComponent());
+            frame.setTitle(viewer.getTitle() + " - " + viewer.getReportPath());
         });
         panel.add(tabbedPane);
 
         if (rightToLeftConfiguration)
             panel.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-
 
         frame.add(panel);
         frame.setSize(FRAME_SIZE);
@@ -85,11 +84,9 @@ public class ReportViewer extends StiViewerFx {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
-
         db = new StiMySqlDatabase(
                 "DataSet1", "DataSet1",
-                String.format(
-                        "url=jdbc:mysql://%s:%s/%s?useSSL=false;database=%s;port=%s;",
+                String.format("url=jdbc:mysql://%s:%s/%s?useSSL=false;database=%s;port=%s;",
                         _server, _port, _dbName, _dbName, _port
                 )
         );
@@ -101,10 +98,11 @@ public class ReportViewer extends StiViewerFx {
 
     /**
      * set localization of {@link ReportViewer}
-     * @param _langName name of the locale file in Localization directory without extension
+     *
+     * @param _langName      name of the locale file in Localization directory without extension
      * @param _isRightToLeft is the language right to left or not
      * @throws FileNotFoundException throws on wrong locale file path
-     * @throws StiException in case of any exception in Stimulsoft classes
+     * @throws StiException          in case of any exception in Stimulsoft classes
      */
     public static void localizationConfiguration(String _langName, boolean _isRightToLeft) throws FileNotFoundException, StiException {
         StiLocalizationAction action = new StiLocalizationAction();
@@ -116,11 +114,12 @@ public class ReportViewer extends StiViewerFx {
 
     /**
      * create a {@link StiReport} using report file path
+     *
      * @param _reportPath report file path
      * @return a {@link StiReport} object of given report file path
      * @throws StiDeserializationException in case of any exception in Stimulsoft classes
-     * @throws SAXException in case of any exception in ReportFile loading
-     * @throws IOException in case of any exception given file path
+     * @throws SAXException                in case of any exception in ReportFile loading
+     * @throws IOException                 in case of any exception given file path
      */
     public static StiReport createReport(String _reportPath) throws StiDeserializationException, SAXException, IOException {
         StiReport report = StiSerializeManager.deserializeReport(new File(_reportPath));
@@ -145,8 +144,9 @@ public class ReportViewer extends StiViewerFx {
 
     /**
      * shows created report in a JFrame
+     *
      * @param _stiReport a {@link StiReport} object created by createReport() method
-     * @param _title title of report. it will be shown as tab title
+     * @param _title     title of report. it will be shown as tab title
      */
     public static void showReport(StiReport _stiReport, String _title) {
         SwingUtilities.invokeLater(() -> {
@@ -155,7 +155,7 @@ public class ReportViewer extends StiViewerFx {
                 reportViewerPanel.setTitle(_title);
                 reportViewerPanel.setReportPath(_stiReport.getReportFile());
 
-                tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>"+ _title + "</body></html>", reportViewerPanel);
+                tabbedPane.addTab("<html><body leftmargin=15 topmargin=8 marginwidth=15 marginheight=5>" + _title + "</body></html>", reportViewerPanel);
                 tabbedPane.setSelectedComponent(reportViewerPanel);
 
                 frame.setVisible(true);
@@ -175,21 +175,23 @@ public class ReportViewer extends StiViewerFx {
 
     /**
      * set font for {@link ReportViewer} ui
+     *
      * @param _font a font object
      */
-    public static void UIFontConfiguration(javax.swing.plaf.FontUIResource _font){
+    public static void UIFontConfiguration(javax.swing.plaf.FontUIResource _font) {
         java.util.Enumeration keys = UIManager.getDefaults().keys();
         while (keys.hasMoreElements()) {
             Object key = keys.nextElement();
-            Object value = UIManager.get (key);
+            Object value = UIManager.get(key);
             if (value instanceof javax.swing.plaf.FontUIResource)
-                UIManager.put (key, _font);
+                UIManager.put(key, _font);
         }
     }
 
 
     /**
      * Class constructor
+     *
      * @param parentFrame {@link JFrame} object for {@link ReportViewer}
      */
     private ReportViewer(JFrame parentFrame) {
@@ -317,10 +319,11 @@ public class ReportViewer extends StiViewerFx {
 
     /**
      * create a {@link javax.swing.JToolBar.Separator} component
+     *
      * @return a {@link javax.swing.JToolBar.Separator} component object
      */
     private JToolBar.Separator createSeparator() {
-        return new JToolBar.Separator( null );
+        return new JToolBar.Separator(null);
     }
 
 
@@ -349,18 +352,22 @@ public class ReportViewer extends StiViewerFx {
     /**
      * value of this property is used for moving NavigationToolBar to top of the form
      */
-    @Getter @Setter private static boolean navigationToolbarToTopConfiguration = false;
+    @Getter
+    @Setter
+    private static boolean navigationToolbarToTopConfiguration = false;
 
     /**
      * determine whether the current locale language has right_to_left feature or not
      */
-    @Getter private static boolean rightToLeftConfiguration = false;
+    @Getter
+    private static boolean rightToLeftConfiguration = false;
 
     /**
      * value of this property will be use to disable tooltips
      */
-    @Getter @Setter private static boolean disableToolTipsConfiguration = false;
-
+    @Getter
+    @Setter
+    private static boolean disableToolTipsConfiguration = false;
 
 
     private static JTabbedPane tabbedPane;
@@ -369,35 +376,61 @@ public class ReportViewer extends StiViewerFx {
     /**
      * database of the report
      */
-    @Getter static private StiMySqlDatabase db;
+    @Getter
+    static private StiMySqlDatabase db;
 
 
-    @Getter @Setter private String title = "";
-    @Getter @Setter private String reportPath = "";
+    @Getter
+    @Setter
+    private String title = "";
+    @Getter
+    @Setter
+    private String reportPath = "";
 
-    @Getter private StiToggleFlatButton singlePage;
-    @Getter private StiToggleFlatButton continuousPage;
-    @Getter private StiToggleFlatButton multiplePage;
+    @Getter
+    private StiToggleFlatButton singlePage;
+    @Getter
+    private StiToggleFlatButton continuousPage;
+    @Getter
+    private StiToggleFlatButton multiplePage;
 
-    @Getter private StiFlatButton btnPrint;
-    @Getter private StiFlatButton btnOpen;
-    @Getter private StiFlatButton btnSave;
-    @Getter private StiFlatButton btnSaveEmail;
-    @Getter private StiToggleFlatButton btnBookmarks;
-    @Getter private StiFlatButton btnParameters;
-    @Getter private StiToggleFlatButton btnThumbs;
-    @Getter private StiToggleFlatButton btnFind;
-    @Getter private StiFlatButton btnFullScreen;
-    @Getter private StiToggleFlatButton btnZoomOnPage;
-    @Getter private StiToggleFlatButton btnZoomTwoPages;
-    @Getter private StiToggleFlatButton btnZoomPageWidth;
+    @Getter
+    private StiFlatButton btnPrint;
+    @Getter
+    private StiFlatButton btnOpen;
+    @Getter
+    private StiFlatButton btnSave;
+    @Getter
+    private StiFlatButton btnSaveEmail;
+    @Getter
+    private StiToggleFlatButton btnBookmarks;
+    @Getter
+    private StiFlatButton btnParameters;
+    @Getter
+    private StiToggleFlatButton btnThumbs;
+    @Getter
+    private StiToggleFlatButton btnFind;
+    @Getter
+    private StiFlatButton btnFullScreen;
+    @Getter
+    private StiToggleFlatButton btnZoomOnPage;
+    @Getter
+    private StiToggleFlatButton btnZoomTwoPages;
+    @Getter
+    private StiToggleFlatButton btnZoomPageWidth;
 
 
-    @Getter private StiMultipageButton btnZoomMultiplePage;
-    @Getter private StiFlatButton btnNextPage;
-    @Getter private StiFlatButton btnPrevPage;
-    @Getter private StiFlatButton btnGoToPage;
-    @Getter private StiFlatButton btnLastPage;
-    @Getter private StiFlatButton btnFirstPage;
+    @Getter
+    private StiMultipageButton btnZoomMultiplePage;
+    @Getter
+    private StiFlatButton btnNextPage;
+    @Getter
+    private StiFlatButton btnPrevPage;
+    @Getter
+    private StiFlatButton btnGoToPage;
+    @Getter
+    private StiFlatButton btnLastPage;
+    @Getter
+    private StiFlatButton btnFirstPage;
 
 }
