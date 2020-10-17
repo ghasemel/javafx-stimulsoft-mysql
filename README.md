@@ -1,4 +1,4 @@
-# java javafx stimulsoft mysql
+# How to use Stimulsoft Reports in JavaFX with MySQL
 
 This project demonstrates integration of [Stimulsoft Reporting tools](https://www.stimulsoft.com/en) with JavaFx.
 
