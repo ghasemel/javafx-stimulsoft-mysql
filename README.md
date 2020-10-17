@@ -53,7 +53,7 @@ _it creates the jar file: /path/to/project/root/directory/target/javafx_stimulso
 Currently following locale supports:
   - English (en.xml)
   - Farsi (fa.xml)
-The default locale is English (en). To switch between them pass locale name as argument to the jar file. e.g.:
+The default locale is English (en). To switch between them pass locale name as argument to the jar file.<br />
 `java -jar /path/to/project/root/directory/target/javafx_stimulsoft-1.0-SNAPSHOT.jar fa`
 
 
