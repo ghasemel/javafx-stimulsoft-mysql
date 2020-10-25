@@ -3,8 +3,12 @@ jobs:
   maven/test:
     docker:
     - image: goyalzz/ubuntu-java-8-maven-docker-image
-    steps:
+    steps:        
     - checkout
+    - run:
+        name: Author
+        command: |
+          echo $AUTHOR
     - run:
         name: maven version
         command: mvn --version
@@ -24,7 +28,7 @@ jobs:
         - ~/.m2
         key: maven-{{ checksum "/tmp/maven_cache_seed" }}
     - store_test_results:
-        path: target/surefire-reports
+        path: target/surefire-reports    
 workflows:
   maven_test:
     jobs:
